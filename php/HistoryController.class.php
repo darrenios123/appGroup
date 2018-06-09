@@ -1,9 +1,9 @@
-<?php
+﻿<?php
 namespace FApi\Controller;
 use Think\Controller;
 class HistoryController extends Controller {
 	/*
-	*	PHP调试IOS接口记录
+	====================	PHP调试IOS接口记录
 	 */
 	public function History(){
 		$ip = $_SERVER['REMOTE_ADDR'];

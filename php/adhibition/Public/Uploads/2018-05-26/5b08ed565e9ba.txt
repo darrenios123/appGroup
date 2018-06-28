@@ -1,0 +1,33 @@
+		// 参数依次为 App0Id, AppKey, MasterKey
+		Client::initialize("oCBAIpfzBvtIT3qq2AslNPUU-gzGzoHsz", "0MbY3orKNzCQBb3CQbeNq5Kd", "lmhEdlL3WVPIlc2JeOKuzmhN");
+		Client::setServerUrl("https://ocbaipfz.api.lncld.net");
+		$testObject = new Object("TestObject");
+
+		//新增数据
+		$result = Query::doCloudQuery("INSERT INTO TodoFolder(name, priority) values('工作', 1)");
+		dump($result);
+		// $testObject->set("ceshi", "测试ID");
+		// $query = new Query("TestObject");
+		// $todo  = $query->get("5b079eee2f301e0038971997");
+		// 
+		// 
+		// 更新数据
+		//Query::doCloudquery("update TestObject set ceshi='家庭123' where objectId='5b07ba41d50eee008915d568'");
+
+		// $result = Query::doCloudQuery("select * from TestObject where objectId!='5b079eee2f301e0038971997'");
+		// dump($result);
+		try {
+		    dump($testObject->save());
+		    echo "11111111111111111111";
+		} catch (Exception $ex) {
+		    echo "222222222222222222222";
+		}
+
+Client::setDebug(true);
+$todo = new Object("Todo");
+
+$profile = $testObject->get("words");
+//$query = new Query("Profile");
+//$profile  = $query->get("5b02be4517d009726f2c64a7");
+echo $profile;
+die();

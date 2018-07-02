@@ -1,0 +1,85 @@
+<html><head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<header><h1>应用后台管理系统</h1></header>
+		<section class="content">
+			<!--左侧列表内容-->
+			<div class="left">
+				<a href="index.html"><h3 >后台系统</h3></a>
+				
+				<hr>
+				<a href="dsf.html"><h3 class="active">第三方后台系统</h3></a>
+				
+			</div>
+			<!--右侧功能内容-->
+			<div class="right">
+				<div class="ctn">
+					<!--功能切换页-->
+					<a href="add.html">添加应用</a>
+					<table class="altrowstable" id="alternatecolor">
+						<tr>
+						    <th>Header 1</th><th>Header 2</th><th>Header 3</th><th>Header 4</th><th>Header 5</th><th>Header 6</th><th>Header 7</th><th>Header 8</th>
+						</tr>
+						<tr>
+						    <td>1A</td><td>1B</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td>
+						</tr>
+						<tr>
+						    <td>2A</td><td>2B</td><td>2C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td>
+						</tr>
+						</tr>
+						<tr>
+						    <td>3A</td><td>3B</td><td>3C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td>
+						</tr>
+						<tr>
+						    <td>4A</td><td>4B</td><td>4C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td>
+						</tr>
+						<tr>
+						    <td>5A</td><td>5B</td><td>5C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td>
+						</tr>
+						<tr>
+						    <td>5A</td><td>5B</td><td>5C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td>
+						</tr>
+						<tr>
+						    <td>5A</td><td>5B</td><td>5C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td>
+						</tr>
+						<tr>
+						    <td>5A</td><td>5B</td><td>5C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td><td>1C</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</section>
+
+</body></html>
+<!-- 表格样式js -->
+<script type="text/javascript">
+function altRows(id){
+    if(document.getElementsByTagName){  
+        
+        var table = document.getElementById(id);  
+        var rows = table.getElementsByTagName("tr"); 
+         
+        for(i = 0; i < rows.length; i++){          
+            if(i % 2 == 0){
+                rows[i].className = "evenrowcolor";
+            }else{
+                rows[i].className = "oddrowcolor";
+            }      
+        }
+    }
+}
+
+window.onload=function(){
+    altRows('alternatecolor');
+}
+</script>
+<!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(".content .left h3").click(function(){
+		console.log(1111);
+		$(this).addClass("active").parent("a").siblings("a").children('h3').removeClass('active');
+	})
+</script> -->

@@ -1,0 +1,23 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>键盘专用上传小说页</title>
+		<link rel="stylesheet" type="text/css" href="/Public/Css/style.css"/>
+	</head>
+	<body>
+		<section>
+			<div class="top">键盘专用上传小说系统</div>
+			<div class="login">
+			<form action="<?php echo U('ApP_AdMIn_AdhiBITIoN/Uploads/doUpload');?>" method="POST" enctype="multipart/form-data">
+				中文<input type="radio" name="lang" value="1" checked="checked">
+				英文<input type="radio" name="lang" value="2">
+				中英<input type="radio" name="lang" value="3">
+				英中<input type="radio" name="lang" value="4">
+				<input type='file' name='files' value="" multiple="multiple"><br />
+				<input type="submit" id="login" value="走着======>" />
+			</form>
+			</div>
+		</section>
+	</body>
+</html>

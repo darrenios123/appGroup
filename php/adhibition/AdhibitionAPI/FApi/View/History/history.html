@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>调试页</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/bootstrap.min.css">
+	<style type="text/css">   
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="h1">IOS   调试页</div>
+		<div>
+			<form method="get" action="http://www.ip138.com/ips1388.asp" name="ipform" onsubmit="return checkIP();" target="__blank">
+				<tr>
+					<td align="center">IP地址或者域名：<input type="text" name="ip" size="16"> <input type="submit" value="查询"><input type="hidden" name="action" value="2"></td>
+				</tr>
+			</form>
+		</div>
+		<table class="table table-bordered table-striped table-hover">
+			<tr class="success">
+				<td>请求时间</td>
+				<td>ip</td>
+				<td>时区</td>
+				<td>语言</td>
+				<td>应用ID</td>
+				<td>应用名</td>
+				<td>展示地址</td>
+			</tr>
+			<foreach name="data" item="res" key="key">
+			<tr>
+				<td>{$res['ios_data']['time']}</td>
+				<td>{$res['ip']}</td>
+				<td>{$res['ios_data']['times']}</td>
+				<td>{$res['ios_data']['language']}</td>
+				<td>{$res['ios_data']['aname']}</td>
+				<td>{$res['ios_data']['app_name']['app_name']}</td>
+				<td>{$res['ios_data']['return_url']}</td>
+			</tr>
+			</foreach>
+		</table>
+	</div>
+
+</body>
+</html>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function checkIP()
+{
+	var ipArray,ip,j;
+	ip = document.ipform.ip.value;
+
+	if (ip.indexOf(" ")>=0){
+		ip = ip.replace(/ /g,"");
+		document.ipform.ip.value = ip;
+	}
+	if (ip.toLowerCase().indexOf("http://")==0){
+		ip = ip.slice(7);
+		document.ipform.ip.value = ip;
+	}
+	if (ip.toLowerCase().indexOf("https://")==0){
+		ip = ip.slice(8);
+		document.ipform.ip.value = ip;
+	}
+	if (ip.slice(ip.length-1)=="/"){
+		ip = ip.slice(0,ip.length-1);
+		document.ipform.ip.value = ip;
+	}
+
+	if(/[A-Za-z_-]/.test(ip)){
+		if(!/^([\w-]+\.)+((ac)|(ad)|(ae)|(af)|(ag)|(ai)|(al)|(am)|(an)|(ao)|(aq)|(ar)|(as)|(asia)|(at)|(au)|(aw)|(az)|(ba)|(band)|(bb)|(bd)|(be)|(bf)|(bg)|(bh)|(bi)|(bid)|(biz)|(bj)|(bm)|(bn)|(bo)|(br)|(bs)|(bt)|(bv)|(bw)|(by)|(bz)|(ca)|(cc)|(cd)|(cf)|(cg)|(ch)|(ci)|(ck)|(cl)|(click)|(club)|(cm)|(cn)|(co)|(co\.in)|(co\.nz)|(co\.uk)|(com)|(com\.ag)|(com\.br)|(com\.bz)|(com\.cn)|(com\.co)|(com\.es)|(com\.hk)|(com\.mx)|(com\.tw)|(cr)|(cu)|(cv)|(cx)|(cy)|(cz)|(date)|(de)|(design)|(dj)|(dk)|(dm)|(do)|(dz)|(ec)|(ee)|(eg)|(engineer)|(er)|(es)|(et)|(eu)|(fi)|(firm\.in)|(fj)|(fk)|(fm)|(fo)|(fr)|(ga)|(gd)|(ge)|(gen\.in)|(gf)|(gg)|(gh)|(gi)|(gift)|(gl)|(gm)|(gn)|(gov\.cn)|(gp)|(gq)|(gr)|(gs)|(gt)|(gu)|(gw)|(gy)|(help)|(hk)|(hm)|(hn)|(hr)|(ht)|(hu)|(id)|(idv\.tw)|(ie)|(il)|(im)|(in)|(ind\.in)|(info)|(io)|(iq)|(ir)|(is)|(it)|(je)|(jm)|(jo)|(jobs)|(jp)|(ke)|(kg)|(kh)|(ki)|(km)|(kn)|(kr)|(kw)|(ky)|(kz)|(la)|(lawyer)|(lb)|(lc)|(li)|(link)|(live)|(lk)|(lr)|(ls)|(lt)|(ltd\.uk)|(lu)|(lv)|(ly)|(ma)|(market)|(mc)|(md)|(me)|(me\.uk)|(mg)|(mh)|(mk)|(ml)|(mm)|(mn)|(mo)|(mobi)|(mp)|(mq)|(mr)|(ms)|(mt)|(mu)|(mv)|(mw)|(mx)|(my)|(mz)|(na)|(name)|(nc)|(ne)|(net)|(net\.ag)|(net\.br)|(net\.bz)|(net\.cn)|(net\.co)|(net\.in)|(net\.nz)|(news)|(nf)|(ng)|(ni)|(nl)|(no)|(nom\.co)|(nom\.es)|(np)|(nr)|(nu)|(nz)|(om)|(online)|(org)|(org\.ag)|(org\.cn)|(org\.es)|(org\.in)|(org\.nz)|(org\.tw)|(org\.uk)|(pa)|(party)|(pe)|(pf)|(pg)|(ph)|(photo)|(pics)|(pk)|(pl)|(plc\.uk)|(pm)|(pn)|(pr)|(pro)|(press)|(ps)|(pt)|(pub)|(pw)|(py)|(qa)|(re)|(ren)|(ro)|(rocks)|(ru)|(rw)|(sa)|(sb)|(sc)|(science)|(sd)|(se)|(sg)|(sh)|(si)|(site)|(sk)|(sl)|(sm)|(sn)|(so)|(social)|(software)|(space)|(sr)|(st)|(studio)|(sv)|(sy)|(sz)|(tc)|(td)|(tech)|(tf)|(tg)|(th)|(tj)|(tk)|(tl)|(tm)|(tn)|(to)|(top)|(tr)|(trade)|(travel)|(tt)|(tv)|(tw)|(tz)|(ua)|(ug)|(uk)|(us)|(uy)|(uz)|(va)|(vc)|(ve)|(vg)|(vi)|(video)|(vn)|(vu)|(wang)|(website)|(wf)|(wiki)|(win)|(ws)|(xin)|(xyz)|(ye)|(yt)|(yu)|(za)|(zm)|(zw))$/i.test(ip)){
+			alert("不是正确的域名");
+			document.ipform.ip.focus();
+			return false;
+		}
+	}
+	else{
+		ipArray = ip.split(".");
+		j = ipArray.length
+		if(j!=4)
+		{
+			alert("不是正确的IP");
+			document.ipform.ip.focus();
+			return false;
+		}
+
+		for(var i=0;i<4;i++)
+		{
+			if(ipArray[i].length==0 || ipArray[i]>255)
+			{
+				alert("不是正确的IP");
+				document.ipform.ip.focus();
+				return false;
+			}
+		}
+	}
+}
+//-->
+</SCRIPT>
